@@ -1,0 +1,63 @@
+.header {
+  color: #3E3D3D;
+  background-color: #1E1D1E;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.header > .left {
+  text-align: left;
+}
+
+.header > .center {
+  text-align: center;
+}
+
+.header > .right {
+  text-align: right;
+}
+
+.color1 {
+  color: #242424;
+  background-color: #74729F;
+}
+
+.color1_2 {
+  color: #74729F;
+  background-color: #3E3D3D;
+}
+
+.color2 {
+  color: #BCBBBB;
+  background-color: #3E3D3D;
+}
+
+.color2_3 {
+  color: #3E3D3D;
+  background-color: #1E1D1E;
+}
+
+.color3 {
+  color: #3E3D3D;
+  background-color: #1E1D1E;
+}
+
+.color1_3 {
+  color: #74729F;
+  background-color: #1E1D1E;
+}
+
+.color3_1 {
+  background-color: #74729F;
+  color: #1E1D1E;
+}
+
+.color3_2 {
+  background-color: #3E3D3D;
+  color: #1E1D1E;
+}
+
+
+
+
+

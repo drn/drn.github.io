@@ -1,5 +1,8 @@
 body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  background-color: #090820;
+  color: #BCBBBB;
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
 }
