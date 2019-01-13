@@ -61,9 +61,9 @@ class Header extends Component {
           <span className="color3">
             &nbsp;{this.cpu()} {this.mem()} {this.bat()}&nbsp;
           </span>
-          <span className="color2_3">⮂</span>
+          <span className="color3_2">⮀</span>
           <span className="color2">&nbsp;{this.state.date}&nbsp;</span>
-          <span className="color1_2">⮂</span>
+          <span className="color2_1">⮀</span>
           <span className="color1">&nbsp;{this.state.time}&nbsp;</span>
         </div>
       </div>

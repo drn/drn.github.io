@@ -27,9 +27,19 @@
   background-color: #3E3D3D;
 }
 
+.color1_3 {
+  color: #74729F;
+  background-color: #1E1D1E;
+}
+
 .color2 {
   color: #BCBBBB;
   background-color: #3E3D3D;
+}
+
+.color2_1 {
+  color: #3E3D3D;
+  background-color: #74729F;
 }
 
 .color2_3 {
@@ -42,11 +52,6 @@
   background-color: #1E1D1E;
 }
 
-.color1_3 {
-  color: #74729F;
-  background-color: #1E1D1E;
-}
-
 .color3_1 {
   background-color: #74729F;
   color: #1E1D1E;
@@ -56,8 +61,3 @@
   background-color: #3E3D3D;
   color: #1E1D1E;
 }
-
-
-
-
-
