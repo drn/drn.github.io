@@ -41,30 +41,30 @@ class Header extends Component {
     return (
       <div className="header">
         <div className="left">
-          <span className="color1">master ⮁ ✴&nbsp; </span>
+          <span className="color1">&nbsp;master ⮁ *&nbsp;</span>
           <span className="color1_2">⮀</span>
-          <span className="color2"> Thanx&nbsp; </span>
+          <span className="color2">&nbsp;Thanx&nbsp;</span>
           <span className="color2_3">⮀</span>
-          <span className="color3">192.168.1.1</span>
+          <span className="color3"> 192.168.1.1 </span>
         </div>
 
         <div className="center">
           <span className="color3_1">⮀</span>
-          <span className="color1"> 1 terminal&nbsp; </span>
+          <span className="color1">&nbsp;1 terminal&nbsp;</span>
           <span className="color1_3">⮀</span>
           <span className="color3_2">⮀</span>
-          <span className="color2"> 2 reference&nbsp; </span>
+          <span className="color2">&nbsp;2 reference&nbsp;</span>
           <span className="color2_3">⮀</span>
         </div>
 
         <div className="right">
           <span className="color3">
-            {this.cpu()} {this.mem()} {this.bat()}&nbsp;
+            &nbsp;{this.cpu()} {this.mem()} {this.bat()}&nbsp;
           </span>
           <span className="color2_3">⮂</span>
-          <span className="color2">{this.state.date}</span>
+          <span className="color2">&nbsp;{this.state.date}&nbsp;</span>
           <span className="color1_2">⮂</span>
-          <span className="color1">{this.state.time}</span>
+          <span className="color1">&nbsp;{this.state.time}&nbsp;</span>
         </div>
       </div>
     );
