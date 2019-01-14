@@ -7,7 +7,7 @@ import './Header.css'
 type Props = {}
 type State = {
   date: string,
-  time: string
+  time: string,
 }
 
 class Header extends Component<Props, State> {
@@ -18,7 +18,7 @@ class Header extends Component<Props, State> {
 
     this.state = {
       date: this.date(),
-      time: this.time()
+      time: this.time(),
     }
   }
 
@@ -30,20 +30,30 @@ class Header extends Component<Props, State> {
     clearInterval(this.timer)
   }
 
-  cpu() { return '3%c' }
+  cpu() {
+    return '3%c'
+  }
 
-  mem() { return '47%m' }
+  mem() {
+    return '47%m'
+  }
 
-  bat() { return '19%b' }
+  bat() {
+    return '19%b'
+  }
 
-  date() { return moment().format('ddd D ⮃ MMM YYYY') }
+  date() {
+    return moment().format('ddd D ⮃ MMM YYYY')
+  }
 
-  time() { return moment().format('h:mm:ssa') }
+  time() {
+    return moment().format('h:mm:ssa')
+  }
 
   tickClock() {
     this.setState({
       date: this.date(),
-      time: this.time()
+      time: this.time(),
     })
   }
 

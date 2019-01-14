@@ -6,12 +6,12 @@ import './Input.css'
 
 type Props = {}
 type State = {
-  contents: Array<any>
+  contents: Array<any>,
 }
 
 class Input extends Component<Props, State> {
   focus: () => void
-  onKeyPress: (Event) => void
+  onKeyPress: Event => void
   parseRow: (any, number) => void
   inputRef: ?HTMLInputElement
 
@@ -23,7 +23,7 @@ class Input extends Component<Props, State> {
     this.parseRow = this.parseRow.bind(this)
 
     this.state = {
-      contents: []
+      contents: [],
     }
   }
 
@@ -41,7 +41,11 @@ class Input extends Component<Props, State> {
   parseRow(content: any, index: number) {
     let body = content.body
     if (content.type === 'command') {
-      body = <div>{this.indicator()}&nbsp;{body}</div>
+      body = (
+        <div>
+          {this.indicator()}&nbsp;{body}
+        </div>
+      )
     }
     return (
       <div className="row" key={index}>
@@ -60,16 +64,20 @@ class Input extends Component<Props, State> {
   }
 
   input() {
-    return <input
-      type="text"
-      className="input"
-      autoComplete="off"
-      autoCorrect="off"
-      autoCapitalize="off"
-      spellCheck="false"
-      onKeyPress={this.onKeyPress}
-      ref={(input) => { this.inputRef = input }}
-    />
+    return (
+      <input
+        type="text"
+        className="input"
+        autoComplete="off"
+        autoCorrect="off"
+        autoCapitalize="off"
+        spellCheck="false"
+        onKeyPress={this.onKeyPress}
+        ref={input => {
+          this.inputRef = input
+        }}
+      />
+    )
   }
 
   focus() {
@@ -81,8 +89,8 @@ class Input extends Component<Props, State> {
       contents: [
         ...this.state.contents,
         { type: 'command', body: command },
-        { type: 'result', body: `execution of '${command}'` }
-      ]
+        { type: 'result', body: `execution of '${command}'` },
+      ],
     })
   }
 

@@ -12,8 +12,8 @@ class Terminal extends Component<Props> {
   render() {
     return (
       <div className="terminal">
-        <Header/>
-        <Input/>
+        <Header />
+        <Input />
       </div>
     )
   }
