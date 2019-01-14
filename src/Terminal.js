@@ -1,6 +1,7 @@
 //@flow
 
 import React, { Component } from 'react'
+import HttpsRedirect from 'react-https-redirect'
 import Header from './Header'
 import Input from './Input'
 
@@ -11,10 +12,12 @@ type Props = {}
 class Terminal extends Component<Props> {
   render() {
     return (
-      <div className="terminal">
-        <Header />
-        <Input />
-      </div>
+      <HttpsRedirect>
+        <div className="terminal">
+          <Header />
+          <Input />
+        </div>
+      </HttpsRedirect>
     )
   }
 }
