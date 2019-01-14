@@ -3,6 +3,9 @@
   background-color: #1E1D1E;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 
 .header > .left {
