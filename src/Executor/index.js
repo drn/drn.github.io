@@ -1,11 +1,12 @@
 //@flow
 
+import _ from 'lodash'
 import { Runnable } from './Runnable'
 import Clear from './Clear'
+import Help from './Help'
 import Whoami from './Whoami'
-import _ from 'lodash'
 
-const commands = [Clear, Whoami]
+const commands = [Clear, Help, Whoami]
 
 class Executor {
   setContents: (Array<any>) => void
