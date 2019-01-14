@@ -3,6 +3,7 @@
 import React, { Component } from 'react'
 import _ from 'lodash'
 import './Input.css'
+import Executor from './Executor'
 
 type Props = {}
 type State = {
@@ -13,7 +14,9 @@ class Input extends Component<Props, State> {
   focus: () => void
   onKeyPress: Event => void
   parseRow: (any, number) => void
+  setContents: (Array<any>) => void
   inputRef: ?HTMLInputElement
+  executor: Executor
 
   constructor(props: Props) {
     super(props)
@@ -21,6 +24,8 @@ class Input extends Component<Props, State> {
     this.focus = this.focus.bind(this)
     this.onKeyPress = this.onKeyPress.bind(this)
     this.parseRow = this.parseRow.bind(this)
+    this.setContents = this.setContents.bind(this)
+    this.executor = new Executor(this.setContents)
 
     this.state = {
       contents: [],
@@ -36,6 +41,10 @@ class Input extends Component<Props, State> {
   componentWillUnmount() {
     // $FlowIgnore
     document.body.removeEventListener('click', this.focus)
+  }
+
+  setContents(contents: Array<any>) {
+    this.setState({ contents: contents })
   }
 
   parseRow(content: any, index: number) {
@@ -85,13 +94,14 @@ class Input extends Component<Props, State> {
   }
 
   run(command: any) {
-    this.setState({
-      contents: [
+    let result = this.executor.run(command)
+    if (result) {
+      this.setContents([
         ...this.state.contents,
         { type: 'command', body: command },
-        { type: 'result', body: `execution of '${command}'` },
-      ],
-    })
+        { type: 'result', body: result },
+      ])
+    }
   }
 
   onKeyPress(e: SyntheticKeyboardEvent<HTMLInputElement>) {
