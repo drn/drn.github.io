@@ -99,7 +99,7 @@ class Input extends Component<Props, State> {
 
   run(command: any) {
     let response = this.executor.run(command)
-    if (response) {
+    if (response && !response.halt) {
       this.setContents([
         ...this.state.contents,
         { type: 'command', body: command, success: response.success },

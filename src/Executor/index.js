@@ -26,7 +26,7 @@ class Executor {
     this.registered[initialized.name] = initialized
   }
 
-  run(command: string): { success: boolean, result: ?string } {
+  run(command: string): { halt?: boolean, success: boolean, result: ?string } {
     const cleaned = command.trim()
 
     // separate command from arguments
@@ -34,10 +34,16 @@ class Executor {
     if (runner) {
       let results = runner.run([])
 
-      if (results.builtins) {
+      if (results.builtins && results.builtins.length > 0) {
         _.each(results.builtins, builtin => {
           this.builtin(builtin)
         })
+
+        return {
+          halt: true,
+          success: true,
+          result: results.result,
+        }
       }
 
       return {
