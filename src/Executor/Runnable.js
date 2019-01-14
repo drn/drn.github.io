@@ -3,5 +3,5 @@
 export interface Runnable {
   run(
     Array<string>
-  ): { success: boolean, builtins?: Array<string>, result?: string };
+  ): { success: boolean, builtins?: Array<string>, result?: any };
 }
