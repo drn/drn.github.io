@@ -49,10 +49,10 @@ class Input extends Component {
     return <input
       type="text"
       className="input"
-      autocomplete="off"
-      autocorrect="off"
-      autocapitalize="off"
-      spellcheck="false"
+      autoComplete="off"
+      autoCorrect="off"
+      autoCapitalize="off"
+      spellCheck="false"
       onKeyPress={this.onKeyPress}
       ref={(input) => { this.inputRef = input; }}
     />;
