@@ -1,9 +1,19 @@
+//@flow
+
 import React, { Component } from 'react'
 import moment from 'moment'
 import './Header.css'
 
-class Header extends Component {
-  constructor(props) {
+type Props = {}
+type State = {
+  date: string,
+  time: string
+}
+
+class Header extends Component<Props, State> {
+  timer: IntervalID
+
+  constructor(props: Props) {
     super(props)
 
     this.state = {
