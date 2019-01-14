@@ -10,10 +10,12 @@ class Executor {
   run(command: string): ?string {
     const cleaned = command.trim()
 
-    switch(cleaned) {
+    switch (cleaned) {
       case 'clear':
         this.setContents([])
         return null
+      default:
+        break
     }
     return `execution of '${command}'`
   }
