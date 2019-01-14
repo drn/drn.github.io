@@ -4,29 +4,31 @@ import { Runnable } from './Runnable'
 import Clear from './Clear'
 import _ from 'lodash'
 
+const commands = [Clear]
+
 class Executor {
   setContents: (Array<any>) => void
-  commands: { [s: string]: Runnable }
+  registered: { [s: string]: Runnable }
 
   constructor(setContents: (Array<any>) => void) {
     this.setContents = setContents
-    this.commands = {}
+    this.registered = {}
     const self: any = this
     self.register = this.register.bind(this)
-    _.each([Clear], this.register)
+    _.each(commands, this.register)
   }
 
   // class implementing the Runnable and Nameable interfaces
   register(command: any) {
-    let registered = new command()
-    this.commands[registered.name] = registered
+    let initialized = new command()
+    this.registered[initialized.name] = initialized
   }
 
   run(command: string): ?string {
     const cleaned = command.trim()
 
     // separate command from arguments
-    let runner = this.commands[cleaned]
+    let runner = this.registered[cleaned]
     if (runner) {
       let results = runner.run([])
 
