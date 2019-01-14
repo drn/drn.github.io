@@ -18,3 +18,23 @@ body {
   padding: 0;
   min-height: 100%;
 }
+
+a:link {
+  color: #19BABB;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #19BABB;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #50F0EF;
+  text-decoration: bold;
+}
+
+a:active {
+  color: #50F0EF;
+  text-decoration: none;
+}
