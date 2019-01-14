@@ -117,6 +117,7 @@ class Input extends Component<Props, State> {
   render() {
     return (
       <div className="input">
+        <div className="row">&nbsp;</div>
         {this.contentRows()}
         <div className="row">
           {this.indicator()}&nbsp;{this.input()}
