@@ -44,7 +44,10 @@ class Input extends Component<Props, State> {
   }
 
   setContents(contents: Array<any>) {
-    this.setState({ contents: contents })
+    this.setState({ contents: contents }, () => {
+      // $FlowIgnore
+      window.scrollTo(0, document.body.scrollHeight)
+    })
   }
 
   parseRow(content: any, index: number) {
