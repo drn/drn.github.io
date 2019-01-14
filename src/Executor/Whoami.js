@@ -5,7 +5,7 @@ import { Runnable } from './Runnable'
 import { Nameable } from './Nameable'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
 class Whoami implements Runnable, Nameable {
   name = 'whoami'
@@ -20,8 +20,13 @@ class Whoami implements Runnable, Nameable {
           <div>Darren Cheng</div>
           <div>Co-Founder @ Thanx</div>
           <div>
-            <a href={'https://github.com/drn'} target={'_blank'}>
-              drn @ <FontAwesomeIcon icon={faGithub} />
+            <a href={"https://github.com/drn"} target={"_blank"}>
+              <FontAwesomeIcon icon={faGithub} /> - drn
+            </a>
+          </div>
+          <div>
+            <a href={"https://www.linkedin.com/in/darrenlincheng"} target={"_blank"}>
+              <FontAwesomeIcon icon={faLinkedin} /> - darrenlincheng
             </a>
           </div>
         </div>
