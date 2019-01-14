@@ -1,40 +1,40 @@
-import React, { Component } from 'react';
-import moment from 'moment';
-import './Header.css';
+import React, { Component } from 'react'
+import moment from 'moment'
+import './Header.css'
 
 class Header extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
     this.state = {
       date: this.date(),
       time: this.time()
-    };
+    }
   }
 
   componentDidMount() {
-    this.timer = setInterval(() => this.tickClock(), 500);
+    this.timer = setInterval(() => this.tickClock(), 500)
   }
 
   componentWillUnmount() {
-    clearInterval(this.timer);
+    clearInterval(this.timer)
   }
 
-  cpu() { return '3%c'; }
+  cpu() { return '3%c' }
 
-  mem() { return '47%m'; }
+  mem() { return '47%m' }
 
-  bat() { return '19%b'; }
+  bat() { return '19%b' }
 
-  date() { return moment().format('ddd D ⮃ MMM YYYY'); }
+  date() { return moment().format('ddd D ⮃ MMM YYYY') }
 
-  time() { return moment().format('h:mm:ssa'); }
+  time() { return moment().format('h:mm:ssa') }
 
   tickClock() {
     this.setState({
       date: this.date(),
       time: this.time()
-    });
+    })
   }
 
   render() {
@@ -67,8 +67,8 @@ class Header extends Component {
           <span className="color1">&nbsp;{this.state.time}&nbsp;</span>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default Header;
+export default Header
