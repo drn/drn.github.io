@@ -26,7 +26,7 @@ class Executor {
     this.registered[initialized.name] = initialized
   }
 
-  run(command: string): ?string {
+  run(command: string): { success: boolean, result: ?string } {
     const cleaned = command.trim()
 
     // separate command from arguments
@@ -40,10 +40,16 @@ class Executor {
         })
       }
 
-      return results.result
+      return {
+        success: true,
+        result: results.result,
+      }
     }
 
-    return `zsh: command not found: ${command}`
+    return {
+      success: false,
+      result: `zsh: command not found: ${command}`,
+    }
   }
 
   // Built In Commands

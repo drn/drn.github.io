@@ -53,9 +53,10 @@ class Input extends Component<Props, State> {
   parseRow(content: any, index: number) {
     let body = content.body
     if (content.type === 'command') {
+      const status = content.success ? 'success' : 'failure'
       body = (
         <div>
-          {this.indicator()}&nbsp;{body}
+          {this.indicator()}&nbsp;<span className={status}>{body}</span>
         </div>
       )
     }
@@ -97,12 +98,12 @@ class Input extends Component<Props, State> {
   }
 
   run(command: any) {
-    let result = this.executor.run(command)
-    if (result) {
+    let response = this.executor.run(command)
+    if (response) {
       this.setContents([
         ...this.state.contents,
-        { type: 'command', body: command },
-        { type: 'result', body: result },
+        { type: 'command', body: command, success: response.success },
+        { type: 'result', body: response.result },
       ])
     }
   }

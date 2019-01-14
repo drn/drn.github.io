@@ -16,3 +16,7 @@
   flex-grow: 1;
   caret-color: #C82864;
 }
+
+span.failure {
+  color: #FB5655;
+}
