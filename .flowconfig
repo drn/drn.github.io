@@ -1,0 +1,40 @@
+[ignore]
+.*/node_modules/.*/test/.*.json
+.*/node_modules/draft-js/.*
+.*/node_modules/.cache/.*
+.git
+
+[untyped]
+.*/node_modules/react-select/.*
+
+[include]
+
+[lints]
+
+[strict]
+nonstrict-import
+unclear-type
+unsafe-getters-setters
+untyped-import
+untyped-type-import
+
+[options]
+emoji=true
+module.system.node.resolve_dirname=node_modules
+
+module.name_mapper='^actions/\(.*\)$' -> '<PROJECT_ROOT>/src/actions/\1'
+module.name_mapper='^assets/\(.*\)$' -> '<PROJECT_ROOT>/src/assets/\1'
+module.name_mapper='^components/\(.*\)$' -> '<PROJECT_ROOT>/src/components/\1'
+module.name_mapper='^constants/\(.*\)$' -> '<PROJECT_ROOT>/src/constants/\1'
+module.name_mapper='^locales/\(.*\)$' -> '<PROJECT_ROOT>/src/locales/\1'
+module.name_mapper='^models/\(.*\)$' -> '<PROJECT_ROOT>/src/models/\1'
+module.name_mapper='^reducers/\(.*\)$' -> '<PROJECT_ROOT>/src/reducers/\1'
+module.name_mapper='^scenes/\(.*\)$' -> '<PROJECT_ROOT>/src/scenes/\1'
+module.name_mapper='^selectors/\(.*\)$' -> '<PROJECT_ROOT>/src/selectors/\1'
+module.name_mapper='^store$' -> '<PROJECT_ROOT>/src/store'
+module.name_mapper='^stylesheets/\(.*\)$' -> '<PROJECT_ROOT>/flow/empty.js.flow'
+module.name_mapper='^utilities/\(.*\)$' -> '<PROJECT_ROOT>/src/utilities/\1'
+module.name_mapper.extension='svg' -> '<PROJECT_ROOT>/SVGModule.js.flow'
+
+suppress_comment= \\(.\\|\n\\)*\\$FlowIgnore
+suppress_comment= \\(.\\|\n\\)*\\$FlowFixMe
