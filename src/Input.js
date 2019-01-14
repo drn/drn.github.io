@@ -1,9 +1,21 @@
+//@flow
+
 import React, { Component } from 'react'
 import _ from 'lodash'
 import './Input.css'
 
-class Input extends Component {
-  constructor(props) {
+type Props = {}
+type State = {
+  contents: Array<any>
+}
+
+class Input extends Component<Props, State> {
+  focus: () => void
+  onKeyPress: (Event) => void
+  parseRow: (any, number) => void
+  inputRef: ?HTMLInputElement
+
+  constructor(props: Props) {
     super(props)
 
     this.focus = this.focus.bind(this)
@@ -17,14 +29,16 @@ class Input extends Component {
 
   componentDidMount() {
     this.focus()
+    // $FlowIgnore
     document.body.addEventListener('click', this.focus)
   }
 
   componentWillUnmount() {
+    // $FlowIgnore
     document.body.removeEventListener('click', this.focus)
   }
 
-  parseRow(content, index) {
+  parseRow(content: any, index: number) {
     let body = content.body
     if (content.type === 'command') {
       body = <div>{this.indicator()}&nbsp;{body}</div>
@@ -59,10 +73,10 @@ class Input extends Component {
   }
 
   focus() {
-    this.inputRef.focus()
+    if (this.inputRef) this.inputRef.focus()
   }
 
-  run(command) {
+  run(command: any) {
     this.setState({
       contents: [
         ...this.state.contents,
@@ -72,10 +86,10 @@ class Input extends Component {
     })
   }
 
-  onKeyPress(e) {
+  onKeyPress(e: SyntheticKeyboardEvent<HTMLInputElement>) {
     if (e.key === 'Enter') {
-      this.run(e.target.value)
-      this.inputRef.value = ''
+      if (this.inputRef) this.run(this.inputRef.value)
+      if (this.inputRef) this.inputRef.value = ''
     }
   }
 
