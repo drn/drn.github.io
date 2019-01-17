@@ -4,9 +4,10 @@ import _ from 'lodash'
 import { Runnable } from './Runnable'
 import Clear from './Clear'
 import Help from './Help'
+import List from './List'
 import Whoami from './Whoami'
 
-const commands = [Clear, Help, Whoami]
+const commands = [Clear, Help, List, Whoami]
 
 class Executor {
   setContents: (Array<any>) => void

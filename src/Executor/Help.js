@@ -4,6 +4,7 @@ import React from 'react'
 import { Runnable } from './Runnable'
 import { Nameable } from './Nameable'
 
+// TODO: Dynamically build list of available commands
 class Help implements Runnable, Nameable {
   name = 'help'
 
@@ -16,8 +17,9 @@ class Help implements Runnable, Nameable {
         <div>
           Available Commands:
           <ul>
-            <li>help</li>
             <li>clear</li>
+            <li>list</li>
+            <li>help</li>
             <li>whoami</li>
           </ul>
         </div>
