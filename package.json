@@ -23,9 +23,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "predeploy": "npm run build",
     "flow": "flow check",
-    "deploy": "gh-pages -b master -d build -o upstream",
+    "predeploy": "npm run build",
+    "deploy": "./deploy",
     "prettier": "prettier"
   },
   "devDependencies": {

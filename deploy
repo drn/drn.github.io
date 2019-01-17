@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# Deploys the current build directory to upstream/master.
+
+if [[ -n $(git status -s) ]]; then
+  echo 'Aborting, untracked changes exist.'
+  exit 1
+fi
+
+rm -rf public src yarn.lock package.json README.md
+mv build/* .
+rm -rf build
+git add -A
+git commit -m 'Deployment.'
+git push upstream HEAD:master -f
+git reset --hard HEAD^
