@@ -27,13 +27,13 @@ class Executor {
     this.registered[initialized.name] = initialized
   }
 
-  run(command: string): { halt?: boolean, success: boolean, result: ?string } {
-    const cleaned = command.trim()
+  run(input: string): { halt?: boolean, success: boolean, result: ?string } {
+    let parsed = this.parse(input)
 
     // separate command from arguments
-    let runner = this.registered[cleaned]
+    let runner = this.registered[parsed.command]
     if (runner) {
-      let results = runner.run([])
+      let results = runner.run(parsed.arguments)
 
       if (results.builtins && results.builtins.length > 0) {
         _.each(results.builtins, builtin => {
@@ -55,7 +55,19 @@ class Executor {
 
     return {
       success: false,
-      result: `zsh: command not found: ${command}`,
+      result: `zsh: command not found: ${parsed.command}`,
+    }
+  }
+
+  // Helpers
+
+  // splits input string into command and arguments
+  parse(input: string): { command: string, arguments: Array<string> } {
+    const parts = input.trim().split(' ')
+    const args = parts.slice(1, parts.length)
+    return {
+      command: parts[0] || '',
+      arguments: args,
     }
   }
 
