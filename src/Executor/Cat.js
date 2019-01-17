@@ -15,6 +15,7 @@ class Cat implements Runnable, Nameable {
     switch (filename) {
       case 'README':
         result = <div>Welcome! More to come soon...</div>
+        break
       default:
         break
     }
