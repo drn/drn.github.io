@@ -8,7 +8,7 @@ if [[ -n $(git status -s) ]]; then
 fi
 
 rm -rf public src yarn.lock package.json README.md deploy
-cp build/* .
+cp -r build/* .
 git add -A
 git commit --quiet -m 'Deployment.'
 git push upstream HEAD:master -f
