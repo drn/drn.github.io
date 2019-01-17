@@ -2,12 +2,13 @@
 
 import _ from 'lodash'
 import { Runnable } from './Runnable'
+import Cat from './Cat'
 import Clear from './Clear'
 import Help from './Help'
 import List from './List'
 import Whoami from './Whoami'
 
-const commands = [Clear, Help, List, Whoami]
+const commands = [Cat, Clear, Help, List, Whoami]
 
 class Executor {
   setContents: (Array<any>) => void
