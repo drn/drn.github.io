@@ -17,8 +17,9 @@ class Help implements Runnable, Nameable {
         <div>
           Available Commands:
           <ul>
+            <li>cat</li>
             <li>clear</li>
-            <li>list</li>
+            <li>ls</li>
             <li>help</li>
             <li>whoami</li>
           </ul>
