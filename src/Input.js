@@ -13,6 +13,7 @@ type State = {
 class Input extends Component<Props, State> {
   focus: () => void
   onKeyPress: Event => void
+  onKeyDown: Event => void
   parseRow: (any, number) => void
   setContents: (Array<any>) => void
   inputRef: ?HTMLInputElement
@@ -23,6 +24,7 @@ class Input extends Component<Props, State> {
 
     this.focus = this.focus.bind(this)
     this.onKeyPress = this.onKeyPress.bind(this)
+    this.onKeyDown = this.onKeyDown.bind(this)
     this.parseRow = this.parseRow.bind(this)
     this.setContents = this.setContents.bind(this)
     this.executor = new Executor(this.setContents)
@@ -86,6 +88,7 @@ class Input extends Component<Props, State> {
         autoCapitalize="off"
         spellCheck="false"
         onKeyPress={this.onKeyPress}
+        onKeyDown={this.onKeyDown}
         ref={input => {
           this.inputRef = input
         }}
@@ -112,6 +115,12 @@ class Input extends Component<Props, State> {
     if (e.key === 'Enter') {
       if (this.inputRef) this.run(this.inputRef.value)
       if (this.inputRef) this.inputRef.value = ''
+    }
+  }
+
+  onKeyDown(e: SyntheticKeyboardEvent<HTMLInputElement>) {
+    if (e.key === 'Tab') {
+      e.preventDefault()
     }
   }
 
