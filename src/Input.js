@@ -3,6 +3,7 @@
 import React, { Component } from 'react'
 import _ from 'lodash'
 import './Input.css'
+import Row from './Row'
 import Executor from './Executor'
 
 type Props = {}
@@ -53,29 +54,12 @@ class Input extends Component<Props, State> {
   }
 
   parseRow(content: any, index: number) {
-    let body = content.body
-    if (content.type === 'command') {
-      const status = content.success ? 'success' : 'failure'
-      body = (
-        <div>
-          {this.indicator()}&nbsp;<span className={status}>{body}</span>
-        </div>
-      )
-    }
-    return (
-      <div className="row" key={index}>
-        {body}
-      </div>
-    )
+    return <Row content={content} key={index} />
   }
 
   contentRows() {
     let rows = _.map(this.state.contents, this.parseRow)
     return <div>{rows}</div>
-  }
-
-  indicator() {
-    return <span className="indicator">❯</span>
   }
 
   input() {
@@ -130,7 +114,7 @@ class Input extends Component<Props, State> {
         <div className="row">&nbsp;</div>
         {this.contentRows()}
         <div className="row">
-          {this.indicator()}&nbsp;{this.input()}
+          <span className="indicator">❯</span>&nbsp;{this.input()}
         </div>
       </div>
     )
