@@ -18,7 +18,12 @@ class Whoami implements Runnable, Nameable {
       result: (
         <div>
           <div>Darren Cheng</div>
-          <div>Co-Founder @ Thanx</div>
+          <div>
+            CTO & Co-Founder @&nbsp;
+            <a href={'https://www.thanx.com'} target={'_blank'}>
+              Thanx
+            </a>
+          </div>
           <div>
             <a href={'https://github.com/drn'} target={'_blank'}>
               <FontAwesomeIcon icon={faGithub} /> - drn
