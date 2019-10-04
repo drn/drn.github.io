@@ -95,14 +95,14 @@ class Input extends Component<Props, State> {
     }
   }
 
-  onKeyPress(e: SyntheticKeyboardEvent<HTMLInputElement>) {
+  onKeyPress(e: KeyboardEvent) {
     if (e.key === 'Enter') {
       if (this.inputRef) this.run(this.inputRef.value)
       if (this.inputRef) this.inputRef.value = ''
     }
   }
 
-  onKeyDown(e: SyntheticKeyboardEvent<HTMLInputElement>) {
+  onKeyDown(e: KeyboardEvent) {
     if (e.key === 'Tab') {
       e.preventDefault()
     }

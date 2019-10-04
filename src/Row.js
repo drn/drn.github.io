@@ -1,21 +1,15 @@
-//@flow
-
-import React, { Component } from 'react'
+import React from 'react'
 import Anime from 'react-anime'
 
-type Props = {
+type PropsT = {
   content: any,
 }
 
-export default class Row extends Component<Props> {
-  shouldComponentUpdate(nextProps: Props) {
-    return false
-  }
-
-  body(): any {
-    let body = this.props.content.body
-    if (this.props.content.type === 'command') {
-      const status = this.props.content.success ? 'success' : 'failure'
+const Row = (props: PropsT) => {
+  const body = () => {
+    let body = props.content.body
+    if (props.content.type === 'command') {
+      const status = props.content.success ? 'success' : 'failure'
       return (
         <div>
           <span className="indicator">❯</span>&nbsp;
@@ -31,7 +25,9 @@ export default class Row extends Component<Props> {
     )
   }
 
-  render() {
-    return <div className="row">{this.body()}</div>
-  }
+  return <div className="row">{body()}</div>
 }
+
+const memoized = React.memo(Row)
+
+export default memoized
