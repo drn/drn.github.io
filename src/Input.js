@@ -1,68 +1,44 @@
 //@flow
 
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
 import _ from 'lodash'
 import './Input.css'
 import Row from './Row'
 import Executor from './Executor'
 
-type Props = {}
-type State = {
-  contents: Array<any>,
-}
+const Input = () => {
+  const [contents, setContents] = useState([])
+  const [inputRef, setInputRef] = useState(null)
+  const executor = new Executor(setContents)
 
-class Input extends Component<Props, State> {
-  focus: () => void
-  onKeyPress: Event => void
-  onKeyDown: Event => void
-  parseRow: (any, number) => void
-  setContents: (Array<any>) => void
-  inputRef: ?HTMLInputElement
-  executor: Executor
-
-  constructor(props: Props) {
-    super(props)
-
-    this.focus = this.focus.bind(this)
-    this.onKeyPress = this.onKeyPress.bind(this)
-    this.onKeyDown = this.onKeyDown.bind(this)
-    this.parseRow = this.parseRow.bind(this)
-    this.setContents = this.setContents.bind(this)
-    this.executor = new Executor(this.setContents)
-
-    this.state = {
-      contents: [],
+  useEffect(() => {
+    focus()
+    // $FlowIgnore
+    document.body.addEventListener('click', focus)
+    return () => {
+      // $FlowIgnore
+      document.body.removeEventListener('click', focus)
     }
-  }
+  })
 
-  componentDidMount() {
-    this.focus()
-    // $FlowIgnore
-    document.body.addEventListener('click', this.focus)
-  }
-
-  componentWillUnmount() {
-    // $FlowIgnore
-    document.body.removeEventListener('click', this.focus)
-  }
-
-  setContents(contents: Array<any>) {
-    this.setState({ contents: contents }, () => {
+  useEffect(
+    () => {
       // $FlowIgnore
       window.scrollTo(0, document.body.scrollHeight)
-    })
-  }
+    },
+    [contents]
+  )
 
-  parseRow(content: any, index: number) {
+  const parseRow = (content: any, index: number) => {
     return <Row content={content} key={index} />
   }
 
-  contentRows() {
-    let rows = _.map(this.state.contents, this.parseRow)
+  const contentRows = () => {
+    let rows = _.map(contents, parseRow)
     return <div>{rows}</div>
   }
 
-  input() {
+  const input = () => {
     return (
       <input
         type="text"
@@ -71,54 +47,50 @@ class Input extends Component<Props, State> {
         autoCorrect="off"
         autoCapitalize="off"
         spellCheck="false"
-        onKeyPress={this.onKeyPress}
-        onKeyDown={this.onKeyDown}
-        ref={input => {
-          this.inputRef = input
-        }}
+        onKeyPress={onKeyPress}
+        onKeyDown={onKeyDown}
+        ref={ref => setInputRef(ref)}
       />
     )
   }
 
-  focus() {
-    if (this.inputRef) this.inputRef.focus()
+  const focus = () => {
+    if (inputRef) inputRef.focus()
   }
 
-  run(command: any) {
-    let response = this.executor.run(command)
+  const run = (command: any) => {
+    let response = executor.run(command)
     if (response && !response.halt) {
-      this.setContents([
-        ...this.state.contents,
+      setContents([
+        ...contents,
         { type: 'command', body: command, success: response.success },
         { type: 'result', body: response.result },
       ])
     }
   }
 
-  onKeyPress(e: KeyboardEvent) {
+  const onKeyPress = (e: KeyboardEvent) => {
     if (e.key === 'Enter') {
-      if (this.inputRef) this.run(this.inputRef.value)
-      if (this.inputRef) this.inputRef.value = ''
+      if (inputRef) run(inputRef.value)
+      if (inputRef) inputRef.value = ''
     }
   }
 
-  onKeyDown(e: KeyboardEvent) {
+  const onKeyDown = (e: KeyboardEvent) => {
     if (e.key === 'Tab') {
       e.preventDefault()
     }
   }
 
-  render() {
-    return (
-      <div className="input">
-        <div className="row">&nbsp;</div>
-        {this.contentRows()}
-        <div className="row">
-          <span className="indicator">❯</span>&nbsp;{this.input()}
-        </div>
+  return (
+    <div className="input">
+      <div className="row">&nbsp;</div>
+      {contentRows()}
+      <div className="row">
+        <span className="indicator">❯</span>&nbsp;{input()}
       </div>
-    )
-  }
+    </div>
+  )
 }
 
 export default Input
