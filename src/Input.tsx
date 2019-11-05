@@ -1,14 +1,12 @@
-//@flow
-
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, KeyboardEvent } from 'react'
 import _ from 'lodash'
 import './Input.css'
 import Row from './Row'
 import Executor from './Executor'
 
 const Input = () => {
-  const [contents, setContents] = useState([])
-  const [inputRef, setInputRef] = useState(null)
+  const [contents, setContents] = useState<any[]>([])
+  const [inputRef, setInputRef] = useState<HTMLInputElement | null>(null)
   const executor = new Executor(setContents)
 
   useEffect(() => {
@@ -46,7 +44,7 @@ const Input = () => {
         autoComplete="off"
         autoCorrect="off"
         autoCapitalize="off"
-        spellCheck="false"
+        spellCheck={false}
         onKeyPress={onKeyPress}
         onKeyDown={onKeyDown}
         ref={ref => setInputRef(ref)}
@@ -69,10 +67,10 @@ const Input = () => {
     }
   }
 
-  const onKeyPress = (e: KeyboardEvent) => {
+  const onKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
-      if (inputRef) run(inputRef.value)
-      if (inputRef) inputRef.value = ''
+      if (inputRef) run(inputRef!.value)
+      if (inputRef) inputRef!.value = ''
     }
   }
 

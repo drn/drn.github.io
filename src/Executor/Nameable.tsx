@@ -1,4 +1,3 @@
-//@flow
 export interface Nameable {
-  +name: string;
+  readonly name: string
 }

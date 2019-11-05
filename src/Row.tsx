@@ -2,7 +2,7 @@ import React from 'react'
 import Anime from 'react-anime'
 
 type PropsT = {
-  content: any,
+  content: any
 }
 
 const Row = (props: PropsT) => {

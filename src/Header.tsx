@@ -1,5 +1,3 @@
-//@flow
-
 import React, { useState, useEffect } from 'react'
 import moment from 'moment'
 import './Header.css'
@@ -7,11 +5,14 @@ import './Header.css'
 type PropsT = {}
 
 const Header = (props: PropsT) => {
-  const [date, setDate] = useState(null)
-  const [time, setTime] = useState(null)
+  const [date, setDate] = useState('')
+  const [time, setTime] = useState('')
 
   useEffect(() => {
-    const timer = setInterval(() => tickClock(), 500)
+    const timer = setInterval(() => {
+      setDate(formatDate())
+      setTime(formatTime())
+    }, 500)
     return () => clearInterval(timer)
   }, [])
 
@@ -27,17 +28,12 @@ const Header = (props: PropsT) => {
     return '19%b'
   }
 
-  const formatDate = () => {
+  const formatDate: () => string = () => {
     return moment().format('ddd D ⮃ MMM YYYY')
   }
 
-  const formatTime = () => {
+  const formatTime: () => string = () => {
     return moment().format('h:mm:ssa')
-  }
-
-  const tickClock = () => {
-    setDate(formatDate())
-    setTime(formatTime())
   }
 
   return (

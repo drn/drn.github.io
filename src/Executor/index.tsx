@@ -1,5 +1,3 @@
-//@flow
-
 import _ from 'lodash'
 import { Runnable } from './Runnable'
 import Cat from './Cat'
@@ -11,10 +9,12 @@ import Whoami from './Whoami'
 const commands = [Cat, Clear, Help, List, Whoami]
 
 class Executor {
-  setContents: (Array<any>) => void
-  registered: { [s: string]: Runnable }
+  setContents: (value: Array<any>) => void
+  registered: {
+    [s: string]: Runnable
+  }
 
-  constructor(setContents: (Array<any>) => void) {
+  constructor(setContents: (arg0: Array<any>) => void) {
     this.setContents = setContents
     this.registered = {}
     const self: any = this
@@ -28,7 +28,9 @@ class Executor {
     this.registered[initialized.name] = initialized
   }
 
-  run(input: string): { halt?: boolean, success: boolean, result: ?string } {
+  run(
+    input: string
+  ): { halt?: boolean; success: boolean; result: string | null } {
     let parsed = this.parse(input)
 
     // separate command from arguments
@@ -63,7 +65,7 @@ class Executor {
   // Helpers
 
   // splits input string into command and arguments
-  parse(input: string): { command: string, arguments: Array<string> } {
+  parse(input: string): { command: string; arguments: Array<string> } {
     const parts = input.trim().split(' ')
     const args = parts.slice(1, parts.length)
     return {
