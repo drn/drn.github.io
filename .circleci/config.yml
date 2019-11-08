@@ -1,0 +1,56 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@1.1.4
+
+commands:
+  install_dependencies:
+    steps:
+      - node/with-cache:
+          cache-key: yarn.lock
+          cache-version: v1
+          dir: node_modules
+          steps:
+            - run:
+                command: yarn install
+
+node_config: &node_config
+  docker:
+    - image: circleci/node:10.15.3
+
+workflows:
+  build-test-deploy:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
+      - deploy:
+          requires:
+            - test
+          filters:
+            branches:
+              only: production
+
+jobs:
+  build:
+    <<: *node_config
+    steps:
+      - checkout
+      - install_dependencies
+
+  test:
+    <<: *node_config
+    steps:
+      - checkout
+      - install_dependencies
+      - run:
+          name: 'Compile Typescript'
+          command: yarn tsc
+
+  deploy:
+    <<: *node_config
+    steps:
+      - checkout
+      - install_dependencies
+      - run: echo 'deploy'
