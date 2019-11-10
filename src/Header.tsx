@@ -21,11 +21,11 @@ const Header = (props: PropsT) => {
   }
 
   const mem = () => {
-    return '47%m'
+    return '13%m'
   }
 
   const bat = () => {
-    return '19%b'
+    return '100%b'
   }
 
   const formatDate: () => string = () => {
