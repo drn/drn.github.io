@@ -21,7 +21,10 @@ node_config: &node_config
 workflows:
   build-test-deploy:
     jobs:
-      - build
+      - build:
+          filters:
+            branches:
+              ignore: master
       - test:
           requires:
             - build
