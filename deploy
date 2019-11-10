@@ -7,6 +7,7 @@ if [[ -n $(git status -s) ]]; then
   exit 1
 fi
 
+yarn build
 rm -rf public src yarn.lock package.json README.md deploy
 cp -r build/* .
 git add -A
