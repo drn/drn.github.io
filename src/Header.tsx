@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react'
 import moment from 'moment'
 import './Header.css'
 
-type PropsT = {}
+type Props = {}
 
-const Header = (props: PropsT) => {
+const Header = (props: Props) => {
   const [date, setDate] = useState('')
   const [time, setTime] = useState('')
 

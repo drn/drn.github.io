@@ -6,9 +6,9 @@ import Input from './Input'
 
 // TODO http://tobiasahlin.com/moving-letters/#1
 
-type PropsT = {}
+type Props = {}
 
-const Terminal = (props: PropsT) => {
+const Terminal = (props: Props) => {
   return (
     <HttpsRedirect>
       <div className="terminal">

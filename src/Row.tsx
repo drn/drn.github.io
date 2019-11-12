@@ -1,11 +1,11 @@
 import React from 'react'
 import Anime from 'react-anime'
 
-type PropsT = {
+type Props = {
   content: any
 }
 
-const Row = (props: PropsT) => {
+const Row = (props: Props) => {
   const body = () => {
     let body = props.content.body
     if (props.content.type === 'command') {
