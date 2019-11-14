@@ -9,7 +9,7 @@
     "@fortawesome/free-brands-svg-icons": "^5.11.2",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@fortawesome/react-fontawesome": "^0.1.7",
-    "@types/lodash": "^4.14.146",
+    "@types/lodash": "^4.14.147",
     "@types/react": "^16.9.11",
     "@types/react-dom": "^16.9.4",
     "lodash": "^4.17.11",
