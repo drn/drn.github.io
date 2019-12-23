@@ -20,7 +20,7 @@
     "react-dom": "^16.12.0",
     "react-https-redirect": "^1.0.11",
     "react-scripts": "3.3.0",
-    "typescript": "^3.7.3"
+    "typescript": "^3.7.4"
   },
   "scripts": {
     "start": "react-scripts start",
