@@ -2351,10 +2351,10 @@ alphanum-sort@^1.0.0:
   resolved "https://registry.yarnpkg.com/alphanum-sort/-/alphanum-sort-1.0.2.tgz#97a1119649b211ad33691d9f9f486a8ec9fbe0a3"
   integrity sha1-l6ERlkmyEa0zaR2fn0hqjsn74KM=
 
-animejs@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/animejs/-/animejs-2.2.0.tgz#35eefdfc535b81949c9cb06f0b3e60c02e6fdc80"
-  integrity sha1-Ne79/FNbgZScnLBvCz5gwC5v3IA=
+animejs@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/animejs/-/animejs-3.1.0.tgz#748a90fc1d4bef3efed64508af9a6a82babf5c47"
+  integrity sha512-BjnCroPPQPEAngT0M89pz9TBcOGgOFLnVoq3+jV2upl4rn60k57/AXvESTnuILsNgOEjGuhMEOMp7IlQzk40kA==
 
 ansi-colors@^3.0.0:
   version "3.2.4"
@@ -9513,12 +9513,12 @@ rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-anime@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/react-anime/-/react-anime-2.2.0.tgz#882dae528618573a866d4ee37265fe19696760d0"
-  integrity sha512-terZpZjLSanmxaPkb5mkIL1KSmMcF/4Unk5F1IfgoCTUkz6dRWcblA702X1NSsac/6oy60q2SyS857UcJCQPtQ==
+react-anime@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/react-anime/-/react-anime-3.0.3.tgz#7ebd88cf3c647cc3a76b8faec15152b98ca27a16"
+  integrity sha512-VQjEAMvbkFMZoLSH96z8tzMg96EhFsBXyv83LIJC5lbetYbka/koTBCSvR5f1LPspqbJUbJtN9rEHA6DhCsESw==
   dependencies:
-    animejs "^2.2.0"
+    animejs "^3.1.0"
     lodash.isequal "^4.5.0"
 
 react-app-polyfill@^1.0.5:
