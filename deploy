@@ -8,7 +8,7 @@ if [[ -n $(git status -s) ]]; then
 fi
 
 yarn build
-rm -rf public src yarn.lock package.json README.md deploy
+rm -rf public src yarn.lock README.md deploy
 cp -r build/* .
 git add -A
 git commit --quiet -m 'Deployment.'
