@@ -9,10 +9,12 @@ const Header = (props: Props) => {
   const [time, setTime] = useState('')
 
   useEffect(() => {
-    const timer = setInterval(() => {
+    const updateHeader = () => {
       setDate(formatDate())
       setTime(formatTime())
-    }, 500)
+    }
+    updateHeader()
+    const timer = setInterval(updateHeader, 500)
     return () => clearInterval(timer)
   }, [])
 
