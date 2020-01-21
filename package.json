@@ -11,7 +11,7 @@
     "@fortawesome/react-fontawesome": "^0.1.8",
     "@types/lodash": "^4.14.149",
     "@types/react": "^16.9.17",
-    "@types/react-dom": "^16.9.4",
+    "@types/react-dom": "^16.9.5",
     "lodash": "^4.17.11",
     "moment": "^2.23.0",
     "react": "^16.12.0",
