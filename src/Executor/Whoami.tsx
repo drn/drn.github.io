@@ -18,12 +18,20 @@ class Whoami implements Runnable, Nameable {
           <div>Darren Cheng</div>
           <div>
             CTO & Co-Founder @&nbsp;
-            <a href={'https://www.thanx.com'} target={'_blank'}>
+            <a
+              href={'https://www.thanx.com'}
+              target={'_blank'}
+              rel="noopener noreferrer"
+            >
               Thanx
             </a>
           </div>
           <div>
-            <a href={'https://github.com/drn'} target={'_blank'}>
+            <a
+              href={'https://github.com/drn'}
+              target={'_blank'}
+              rel="noopener noreferrer"
+            >
               <FontAwesomeIcon icon={faGithub} /> - drn
             </a>
           </div>
@@ -31,6 +39,7 @@ class Whoami implements Runnable, Nameable {
             <a
               href={'https://www.linkedin.com/in/darrenlincheng'}
               target={'_blank'}
+              rel="noopener noreferrer"
             >
               <FontAwesomeIcon icon={faLinkedin} /> - darrenlincheng
             </a>
