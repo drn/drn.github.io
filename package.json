@@ -14,7 +14,7 @@
     "@types/react-dom": "^16.9.5",
     "lodash": "^4.17.11",
     "moment": "^2.23.0",
-    "react": "^16.13.0",
+    "react": "^16.13.1",
     "react-anime": "^3.0.3",
     "react-bootstrap": "^0.33.1",
     "react-dom": "^16.13.0",
