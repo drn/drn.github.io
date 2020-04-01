@@ -10,7 +10,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/react-fontawesome": "^0.1.9",
     "@types/lodash": "^4.14.149",
-    "@types/react": "^16.9.27",
+    "@types/react": "^16.9.31",
     "@types/react-dom": "^16.9.5",
     "lodash": "^4.17.11",
     "moment": "^2.23.0",
