@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
-import Terminal from './Terminal'
+import App from './App'
 
 // $FlowIgnore
-ReactDOM.render(<Terminal />, document.getElementById('root'))
+ReactDOM.render(<App />, document.getElementById('root'))

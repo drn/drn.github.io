@@ -1,0 +1,29 @@
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.well {
+  padding: 10px 20px;
+  border-radius: 4px;
+  width: 400px;
+  height: 200px;
+  background: #9197AE;
+  text-align: center;
+  color: #FFF;
+}
+
+button.code {
+  font-size: 100%;
+  color: #FFF;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+button:hover.code {
+  color: #50F0EF;
+}
+

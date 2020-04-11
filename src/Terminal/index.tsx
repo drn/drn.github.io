@@ -1,6 +1,5 @@
 import React from 'react'
 // @ts-ignore
-import HttpsRedirect from 'react-https-redirect'
 import Header from './Header'
 import Input from './Input'
 
@@ -10,12 +9,10 @@ type Props = {}
 
 const Terminal = (props: Props) => {
   return (
-    <HttpsRedirect>
-      <div className="terminal">
-        <Header />
-        <Input />
-      </div>
-    </HttpsRedirect>
+    <div className="terminal">
+      <Header />
+      <Input />
+    </div>
   )
 }
 

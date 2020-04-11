@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import moment from 'moment'
 import './Header.css'
-import useWindowDimensions from './hooks/useWindowDimensions'
+import useWindowDimensions from '../hooks/useWindowDimensions'
 
 type Props = {}
 
