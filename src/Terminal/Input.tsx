@@ -4,24 +4,35 @@ import './Input.css'
 import Row from './Row'
 import Executor from './Executor'
 
-const Input = () => {
+type Props = {
+  code: string,
+  state: string
+}
+
+const Input = (props: Props) => {
   const [contents, setContents] = useState<any[]>([])
   const [inputRef, setInputRef] = useState<HTMLInputElement | null>(null)
   const executor = new Executor(setContents)
+  const initialInputValue = (
+    !!props.code && props.state === 'spotify' ?
+    `spotify ${props.code}` :
+    ''
+  )
+
+  useEffect(() => {
+    console.log('init')
+  }, [])
 
   useEffect(() => {
     focus()
-    // $FlowIgnore
     document.body.addEventListener('click', focus)
     return () => {
-      // $FlowIgnore
       document.body.removeEventListener('click', focus)
     }
   })
 
   useEffect(
     () => {
-      // $FlowIgnore
       window.scrollTo(0, document.body.scrollHeight)
     },
     [contents]
@@ -47,6 +58,7 @@ const Input = () => {
         spellCheck={false}
         onKeyPress={onKeyPress}
         onKeyDown={onKeyDown}
+        defaultValue={initialInputValue}
         ref={ref => setInputRef(ref)}
       />
     )

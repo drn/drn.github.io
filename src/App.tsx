@@ -1,7 +1,7 @@
 import React from 'react'
 // @ts-ignore
 import HttpsRedirect from 'react-https-redirect'
-import { HashRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Terminal from './Terminal'
 import Slack from './Slack'
 

@@ -5,8 +5,9 @@ import Clear from './Clear'
 import Help from './Help'
 import List from './List'
 import Whoami from './Whoami'
+import Spotify from './Spotify'
 
-const commands = [Cat, Clear, Help, List, Whoami]
+const commands = [Cat, Clear, Help, List, Whoami, Spotify]
 
 class Executor {
   setContents: (value: Array<any>) => void
