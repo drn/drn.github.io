@@ -19,7 +19,7 @@
     "query-string": "^6.12.1",
     "react": "^16.13.1",
     "react-anime": "^3.0.3",
-    "react-bootstrap": "^1.0.0",
+    "react-bootstrap": "^1.0.1",
     "react-dom": "^16.13.1",
     "react-https-redirect": "^1.0.11",
     "react-router-dom": "^5.1.2",
