@@ -17,7 +17,7 @@
     "lodash": "^4.17.20",
     "moment": "^2.29.1",
     "query-string": "^6.13.1",
-    "react": "^16.13.1",
+    "react": "^16.14.0",
     "react-anime": "^3.0.3",
     "react-bootstrap": "^1.4.0",
     "react-dom": "^16.13.1",
