@@ -34,7 +34,7 @@
     "prettier": "prettier --write src/**/*.{js,ts,tsx,json,scss}"
   },
   "devDependencies": {
-    "husky": "^4.3.6",
+    "husky": "^4.3.7",
     "lint-staged": "^10.5.3",
     "precise-commits": "^1.0.2",
     "prettier": "2.2.1"
