@@ -3,9 +3,7 @@ import moment from 'moment'
 import './Header.css'
 import useWindowDimensions from '../hooks/useWindowDimensions'
 
-type Props = {}
-
-const Header = (props: Props) => {
+const Header = () => {
   const [date, setDate] = useState('')
   const [time, setTime] = useState('')
 

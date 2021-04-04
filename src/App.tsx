@@ -5,9 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Terminal from './Terminal'
 import Slack from './Slack'
 
-type Props = {}
-
-const App = (props: Props) => {
+const App = () => {
   return (
     <HttpsRedirect>
       <Router>

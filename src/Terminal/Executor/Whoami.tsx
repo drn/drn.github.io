@@ -9,7 +9,7 @@ class Whoami implements Runnable, Nameable {
   name = 'whoami'
 
   run(
-    args: Array<string>
+    _: Array<string>
   ): { success: boolean; builtins?: Array<string>; result?: any } {
     return {
       success: true,

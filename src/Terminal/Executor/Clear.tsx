@@ -5,7 +5,7 @@ class Clear implements Runnable, Nameable {
   name = 'clear'
 
   run(
-    args: Array<string>
+    _: Array<string>
   ): { success: boolean; builtins?: Array<string>; result?: any } {
     return {
       success: true,

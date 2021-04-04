@@ -81,8 +81,8 @@ const Input = (props: Props) => {
 
   const onKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
-      if (inputRef) run(inputRef!.value)
-      if (inputRef) inputRef!.value = ''
+      if (inputRef) run(inputRef.value)
+      if (inputRef) inputRef.value = ''
     }
   }
 
