@@ -3,8 +3,8 @@ import { RouteComponentProps } from 'react-router-dom'
 import './index.css'
 import * as QueryString from 'query-string'
 import copy from 'copy-to-clipboard'
-import { faCopy } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faCopy } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Anime from 'react-anime'
 
 const Slack = (props: RouteComponentProps) => {
@@ -16,7 +16,9 @@ const Slack = (props: RouteComponentProps) => {
       e.preventDefault()
       copy(code.toString())
       setCopied(true)
-      setTimeout(() => { setCopied(false) }, 1000)
+      setTimeout(() => {
+        setCopied(false)
+      }, 1000)
     }
   }
 
@@ -24,7 +26,12 @@ const Slack = (props: RouteComponentProps) => {
     if (!copied) return ''
     return (
       <div>
-        <Anime easing={'easeInOutSine'} direction={'alternate'} opacity={[0, 1]} duration={400}>
+        <Anime
+          easing={'easeInOutSine'}
+          direction={'alternate'}
+          opacity={[0, 1]}
+          duration={400}
+        >
           <p>copied...</p>
         </Anime>
       </div>

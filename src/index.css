@@ -10,8 +10,8 @@ html {
 body {
   font-family: 'Menlo Nerd Font', monospace;
   font-size: 15px;
-  background-color: #08082A;
-  color: #BCBBBB;
+  background-color: #08082a;
+  color: #bcbbbb;
   margin: 0;
   padding: 0;
   min-height: 100%;
@@ -19,21 +19,21 @@ body {
 }
 
 a:link {
-  color: #19BABB;
+  color: #19babb;
   text-decoration: none;
 }
 
 a:visited {
-  color: #19BABB;
+  color: #19babb;
   text-decoration: none;
 }
 
 a:hover {
-  color: #50F0EF;
+  color: #50f0ef;
   text-decoration: bold;
 }
 
 a:active {
-  color: #50F0EF;
+  color: #50f0ef;
   text-decoration: none;
 }

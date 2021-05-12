@@ -1,6 +1,6 @@
 .header {
-  color: #3E3D3D;
-  background-color: #1E1D1E;
+  color: #3e3d3d;
+  background-color: #1e1d1e;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   position: fixed;
@@ -23,45 +23,45 @@
 
 .color1 {
   color: #242424;
-  background-color: #74729F;
+  background-color: #74729f;
 }
 
 .color1_2 {
-  color: #74729F;
-  background-color: #3E3D3D;
+  color: #74729f;
+  background-color: #3e3d3d;
 }
 
 .color1_3 {
-  color: #74729F;
-  background-color: #1E1D1E;
+  color: #74729f;
+  background-color: #1e1d1e;
 }
 
 .color2 {
-  color: #BCBBBB;
-  background-color: #3E3D3D;
+  color: #bcbbbb;
+  background-color: #3e3d3d;
 }
 
 .color2_1 {
-  color: #3E3D3D;
-  background-color: #74729F;
+  color: #3e3d3d;
+  background-color: #74729f;
 }
 
 .color2_3 {
-  color: #3E3D3D;
-  background-color: #1E1D1E;
+  color: #3e3d3d;
+  background-color: #1e1d1e;
 }
 
 .color3 {
-  color: #3E3D3D;
-  background-color: #1E1D1E;
+  color: #3e3d3d;
+  background-color: #1e1d1e;
 }
 
 .color3_1 {
-  background-color: #74729F;
-  color: #1E1D1E;
+  background-color: #74729f;
+  color: #1e1d1e;
 }
 
 .color3_2 {
-  background-color: #3E3D3D;
-  color: #1E1D1E;
+  background-color: #3e3d3d;
+  color: #1e1d1e;
 }

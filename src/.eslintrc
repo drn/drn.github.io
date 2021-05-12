@@ -1,10 +1,6 @@
 {
   "parser": "babel-eslint",
-  "plugins": [
-    "react",
-    "flowtype",
-    "jest"
-  ],
+  "plugins": ["react", "flowtype", "jest"],
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
@@ -32,7 +28,7 @@
   "rules": {
     "react/prop-types": "off",
     "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
-    "react/jsx-curly-spacing": ["error", {"when": "never"}],
+    "react/jsx-curly-spacing": ["error", { "when": "never" }],
     "flowtype/define-flow-type": 1,
     "flowtype/use-flow-type": 1,
     "flowtype/valid-syntax": 1,

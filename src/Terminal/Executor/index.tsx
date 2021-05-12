@@ -29,9 +29,11 @@ class Executor {
     this.registered[initialized.name] = initialized
   }
 
-  run(
-    input: string
-  ): { halt?: boolean; success: boolean; result: string | null } {
+  run(input: string): {
+    halt?: boolean
+    success: boolean
+    result: string | null
+  } {
     let parsed = this.parse(input)
 
     // separate command from arguments
@@ -40,7 +42,7 @@ class Executor {
       let results = runner.run(parsed.arguments)
 
       if (results.builtins && results.builtins.length > 0) {
-        _.each(results.builtins, builtin => {
+        _.each(results.builtins, (builtin) => {
           this.builtin(builtin)
         })
 

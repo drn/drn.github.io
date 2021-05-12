@@ -5,7 +5,7 @@ import Row from './Row'
 import Executor from './Executor'
 
 type Props = {
-  code: string,
+  code: string
   state: string
 }
 
@@ -13,11 +13,8 @@ const Input = (props: Props) => {
   const [contents, setContents] = useState<any[]>([])
   const [inputRef, setInputRef] = useState<HTMLInputElement | null>(null)
   const executor = new Executor(setContents)
-  const initialInputValue = (
-    !!props.code && props.state === 'spotify' ?
-    `spotify ${props.code}` :
-    ''
-  )
+  const initialInputValue =
+    !!props.code && props.state === 'spotify' ? `spotify ${props.code}` : ''
 
   useEffect(() => {
     console.log('init')
@@ -31,12 +28,9 @@ const Input = (props: Props) => {
     }
   })
 
-  useEffect(
-    () => {
-      window.scrollTo(0, document.body.scrollHeight)
-    },
-    [contents]
-  )
+  useEffect(() => {
+    window.scrollTo(0, document.body.scrollHeight)
+  }, [contents])
 
   const parseRow = (content: any, index: number) => {
     return <Row content={content} key={index} />
@@ -59,7 +53,7 @@ const Input = (props: Props) => {
         onKeyPress={onKeyPress}
         onKeyDown={onKeyDown}
         defaultValue={initialInputValue}
-        ref={ref => setInputRef(ref)}
+        ref={(ref) => setInputRef(ref)}
       />
     )
   }

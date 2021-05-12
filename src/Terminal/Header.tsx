@@ -39,23 +39,19 @@ const Header = () => {
     return moment().format('h:mm:ssa')
   }
 
-  const left = (
-    width < 800 ?
-    (
+  const left =
+    width < 800 ? (
       <div className="left">
         <span className="color1">&nbsp;master ⮁ *&nbsp;</span>
         <span className="color1_3">⮀</span>
       </div>
-    ) :
-    width < 1200 ?
-    (
+    ) : width < 1200 ? (
       <div className="left">
         <span className="color1">&nbsp;master ⮁ *&nbsp;</span>
         <span className="color1_3">⮀</span>
         <span className="color3"> 192.168.1.1 </span>
       </div>
-    ) :
-    (
+    ) : (
       <div className="left">
         <span className="color1">&nbsp;master ⮁ *&nbsp;</span>
         <span className="color1_2">⮀</span>
@@ -64,7 +60,6 @@ const Header = () => {
         <span className="color3"> 192.168.1.1 </span>
       </div>
     )
-  )
 
   const center = (
     <div className="center">
@@ -74,32 +69,31 @@ const Header = () => {
     </div>
   )
 
-  const right = (
-    width < 800 ?
-    (
+  const right =
+    width < 800 ? (
       <div className="right">
         <span className="color3_1">⮀</span>
         <span className="color1">&nbsp;{time}&nbsp;</span>
       </div>
-    ) :
-    width < 1200 ?
-    (
+    ) : width < 1200 ? (
       <div className="right">
-        <span className="color3">&nbsp;{cpu()} {mem()} {bat()}&nbsp;</span>
+        <span className="color3">
+          &nbsp;{cpu()} {mem()} {bat()}&nbsp;
+        </span>
         <span className="color3_1">⮀</span>
         <span className="color1">&nbsp;{time}&nbsp;</span>
       </div>
-    ) :
-    (
+    ) : (
       <div className="right">
-        <span className="color3">&nbsp;{cpu()} {mem()} {bat()}&nbsp;</span>
+        <span className="color3">
+          &nbsp;{cpu()} {mem()} {bat()}&nbsp;
+        </span>
         <span className="color3_2">⮀</span>
         <span className="color2">&nbsp;{date}&nbsp;</span>
         <span className="color2_1">⮀</span>
         <span className="color1">&nbsp;{time}&nbsp;</span>
       </div>
     )
-  )
 
   return (
     <div className="header">

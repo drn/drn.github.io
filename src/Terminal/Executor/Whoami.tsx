@@ -8,9 +8,11 @@ import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 class Whoami implements Runnable, Nameable {
   name = 'whoami'
 
-  run(
-    _: Array<string>
-  ): { success: boolean; builtins?: Array<string>; result?: any } {
+  run(_: Array<string>): {
+    success: boolean
+    builtins?: Array<string>
+    result?: any
+  } {
     return {
       success: true,
       result: (

@@ -10,20 +10,19 @@
   border-radius: 4px;
   width: 400px;
   height: 200px;
-  background: #9197AE;
+  background: #9197ae;
   text-align: center;
-  color: #FFF;
+  color: #fff;
 }
 
 button.code {
   font-size: 100%;
-  color: #FFF;
+  color: #fff;
   border: none;
   background: none;
   outline: none;
 }
 
 button:hover.code {
-  color: #50F0EF;
+  color: #50f0ef;
 }
-

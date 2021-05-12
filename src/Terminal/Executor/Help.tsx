@@ -6,9 +6,11 @@ import { Nameable } from './Nameable'
 class Help implements Runnable, Nameable {
   name = 'help'
 
-  run(
-    _: Array<string>
-  ): { success: boolean; builtins?: Array<string>; result?: any } {
+  run(_: Array<string>): {
+    success: boolean
+    builtins?: Array<string>
+    result?: any
+  } {
     return {
       success: true,
       result: (

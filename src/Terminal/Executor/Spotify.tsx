@@ -6,9 +6,11 @@ import copy from 'copy-to-clipboard'
 class Spotify implements Runnable, Nameable {
   name = 'spotify'
 
-  run(
-    args: Array<string>
-  ): { success: boolean; builtins?: Array<string>; result?: any } {
+  run(args: Array<string>): {
+    success: boolean
+    builtins?: Array<string>
+    result?: any
+  } {
     copy(args[0])
     return {
       success: true,
