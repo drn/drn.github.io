@@ -12,5 +12,5 @@ rm -rf public src yarn.lock README.md deploy
 cp -r build/* .
 git add -A
 git commit --quiet -m 'Deployment.'
-git push upstream HEAD:master -f
+git push upstream HEAD:production -f
 git reset --hard HEAD^
