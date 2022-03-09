@@ -9,8 +9,8 @@ class Whoami implements Runnable, Nameable {
   name = 'whoami'
 
   run(_: Array<string>): {
-    success: boolean
-    builtins?: Array<string>
+    success: boolean,
+    builtins?: Array<string>,
     result?: any
   } {
     return {

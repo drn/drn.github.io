@@ -7,8 +7,8 @@ class Help implements Runnable, Nameable {
   name = 'help'
 
   run(_: Array<string>): {
-    success: boolean
-    builtins?: Array<string>
+    success: boolean,
+    builtins?: Array<string>,
     result?: any
   } {
     return {

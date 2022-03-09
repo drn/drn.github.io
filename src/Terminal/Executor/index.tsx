@@ -30,8 +30,8 @@ class Executor {
   }
 
   run(input: string): {
-    halt?: boolean
-    success: boolean
+    halt?: boolean,
+    success: boolean,
     result: string | null
   } {
     let parsed = this.parse(input)

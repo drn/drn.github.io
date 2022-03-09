@@ -6,8 +6,8 @@ class Cat implements Runnable, Nameable {
   name = 'cat'
 
   run(args: Array<string>): {
-    success: boolean
-    builtins?: Array<string>
+    success: boolean,
+    builtins?: Array<string>,
     result?: any
   } {
     const filename = args[0] || ''

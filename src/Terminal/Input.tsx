@@ -5,7 +5,7 @@ import Row from './Row'
 import Executor from './Executor'
 
 type Props = {
-  code: string
+  code: string,
   state: string
 }
 

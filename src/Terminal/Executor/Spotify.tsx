@@ -7,8 +7,8 @@ class Spotify implements Runnable, Nameable {
   name = 'spotify'
 
   run(args: Array<string>): {
-    success: boolean
-    builtins?: Array<string>
+    success: boolean,
+    builtins?: Array<string>,
     result?: any
   } {
     copy(args[0])
