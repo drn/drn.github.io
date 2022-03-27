@@ -3,12 +3,12 @@ import React from 'react'
 import Header from './Header'
 import Input from './Input'
 import QueryString from 'query-string'
-import { RouteComponentProps } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
-const Terminal = (props: RouteComponentProps) => {
-  const query = QueryString.parse(props.location.search)
-  const code = (query.code ?? '').toString()
-  const state = (query.state ?? '').toString()
+const Terminal = () => {
+  const params = useParams()
+  const code = params.code ?? ''
+  const state = params.state ?? ''
 
   return (
     <div className="terminal">

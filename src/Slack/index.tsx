@@ -1,5 +1,5 @@
 import React, { MouseEvent, useState } from 'react'
-import { RouteComponentProps } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import './index.css'
 import * as QueryString from 'query-string'
 import copy from 'copy-to-clipboard'
@@ -7,14 +7,15 @@ import { faCopy } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Anime from 'react-anime'
 
-const Slack = (props: RouteComponentProps) => {
-  const code = QueryString.parse(props.location.search).code ?? ''
+const Slack = () => {
+  const params = useParams()
+  const code = params.code ?? ''
   const [copied, setCopied] = useState<boolean>(false)
 
   const handleCopy = (e: MouseEvent) => {
     if (!copied) {
       e.preventDefault()
-      copy(code.toString())
+      copy(code)
       setCopied(true)
       setTimeout(() => {
         setCopied(false)
