@@ -1,5 +1,5 @@
 {
-  "parser": "react-scripts/node_modules/babel-eslint",
+  "parser": "@babel/eslint-parser",
   "plugins": ["react", "flowtype", "jest"],
   "extends": [
     "eslint:recommended",
