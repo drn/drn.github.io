@@ -5,7 +5,7 @@ import Row from './Row'
 import Executor from './Executor'
 
 type Props = {
-  code: string,
+  code: string
   state: string
 }
 
@@ -15,10 +15,6 @@ const Input = (props: Props) => {
   const executor = new Executor(setContents)
   const initialInputValue =
     !!props.code && props.state === 'spotify' ? `spotify ${props.code}` : ''
-
-  useEffect(() => {
-    console.log('init')
-  }, [])
 
   useEffect(() => {
     focus()
