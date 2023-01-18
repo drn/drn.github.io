@@ -1,5 +1,4 @@
 import React from 'react'
-// @ts-ignore
 import Header from './Header'
 import Input from './Input'
 import QueryString from 'query-string'

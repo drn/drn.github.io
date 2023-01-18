@@ -18,28 +18,27 @@ class Executor {
   constructor(setContents: (arg0: Array<any>) => void) {
     this.setContents = setContents
     this.registered = {}
-    const self: any = this
-    self.register = this.register.bind(this)
+    this.register = this.register.bind(this)
     _.each(commands, this.register)
   }
 
   // class implementing the Runnable and Nameable interfaces
   register(command: any) {
-    let initialized = new command()
+    const initialized = new command()
     this.registered[initialized.name] = initialized
   }
 
   run(input: string): {
-    halt?: boolean,
-    success: boolean,
+    halt?: boolean
+    success: boolean
     result: string | null
   } {
-    let parsed = this.parse(input)
+    const parsed = this.parse(input)
 
     // separate command from arguments
-    let runner = this.registered[parsed.command]
+    const runner = this.registered[parsed.command]
     if (runner) {
-      let results = runner.run(parsed.arguments)
+      const results = runner.run(parsed.arguments)
 
       if (results.builtins && results.builtins.length > 0) {
         _.each(results.builtins, (builtin) => {

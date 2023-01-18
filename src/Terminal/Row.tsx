@@ -7,7 +7,7 @@ type Props = {
 
 const Row = (props: Props) => {
   const body = () => {
-    let body = props.content.body
+    const body = props.content.body
     if (props.content.type === 'command') {
       const status = props.content.success ? 'success' : 'failure'
       return (

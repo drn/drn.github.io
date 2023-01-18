@@ -33,7 +33,7 @@ const Input = (props: Props) => {
   }
 
   const contentRows = () => {
-    let rows = _.map(contents, parseRow)
+    const rows = _.map(contents, parseRow)
     return <div>{rows}</div>
   }
 
@@ -59,7 +59,7 @@ const Input = (props: Props) => {
   }
 
   const run = (command: any) => {
-    let response = executor.run(command)
+    const response = executor.run(command)
     if (response && !response.halt) {
       setContents([
         ...contents,
