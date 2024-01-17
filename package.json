@@ -41,7 +41,7 @@
     "lint-staged": "^13.2.3",
     "precise-commits": "^1.0.2",
     "prettier": "2.8.8",
-    "pretty-quick": "^3.1.4"
+    "pretty-quick": "^3.3.1"
   },
   "husky": {
     "hooks": {
