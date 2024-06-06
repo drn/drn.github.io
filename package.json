@@ -40,8 +40,8 @@
     "husky": "^8.0.3",
     "lint-staged": "^13.2.3",
     "precise-commits": "^1.0.2",
-    "prettier": "2.8.8",
-    "pretty-quick": "^3.3.1"
+    "prettier": "3.3.1",
+    "pretty-quick": "^4.0.0"
   },
   "husky": {
     "hooks": {
