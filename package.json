@@ -5,9 +5,9 @@
   "private": true,
   "dependencies": {
     "@babel/preset-typescript": "^7.24.7",
-    "@fortawesome/fontawesome-svg-core": "^1.2.36",
-    "@fortawesome/free-brands-svg-icons": "^5.15.4",
-    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/fontawesome-svg-core": "^6.5.1",
+    "@fortawesome/free-brands-svg-icons": "^6.5.1",
+    "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@types/lodash": "^4.17.5",
     "@types/react": "^17.0.43",
@@ -16,14 +16,14 @@
     "copy-to-clipboard": "^3.3.3",
     "lodash": "^4.17.21",
     "moment": "^2.30.1",
-    "query-string": "^7.1.3",
+    "query-string": "^8.1.0",
     "react": "^17.0.2",
     "react-anime": "^4.1.1",
     "react-bootstrap": "^2.10.2",
     "react-dom": "^17.0.2",
     "react-router-dom": "^6.23.1",
     "react-scripts": "5.0.1",
-    "typescript": "^4.9.5"
+    "typescript": "^5.1.6"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -33,15 +33,15 @@
     "prepare": "husky install"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.62.0",
-    "@typescript-eslint/parser": "^5.62.0",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
     "eslint": "^8.57.0",
-    "eslint-config-prettier": "^8.10.0",
+    "eslint-config-prettier": "^9.1.0",
     "husky": "^8.0.3",
-    "lint-staged": "^13.2.3",
+    "lint-staged": "^15.2.2",
     "precise-commits": "^1.0.2",
-    "prettier": "2.8.8",
-    "pretty-quick": "^3.3.1"
+    "prettier": "3.2.5",
+    "pretty-quick": "^4.0.0"
   },
   "husky": {
     "hooks": {
@@ -50,8 +50,7 @@
   },
   "lint-staged": {
     "*.{js,ts,tsx,json,scss}": [
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ]
   },
   "browserslist": [
@@ -59,5 +58,6 @@
     "not ie 11",
     "not dead",
     "not op_mini all"
-  ]
+  ],
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }
