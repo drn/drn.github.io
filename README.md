@@ -3,8 +3,8 @@
 [![CircleCI](https://circleci.com/gh/drn/drn.github.io.svg?style=svg)](https://circleci.com/gh/drn/drn.github.io)
 
 A personal homepage rendered as an interactive terminal emulator, live at
-[console.drn.dev](https://console.drn.dev/). Built with Create React App,
-React 17, and TypeScript.
+[console.drn.dev](https://console.drn.dev/). Built with Vite, React 18, and
+TypeScript.
 
 ---
 
@@ -13,6 +13,10 @@ React 17, and TypeScript.
 Run the dev server:
 
     yarn start
+
+Run tests:
+
+    yarn test
 
 Typecheck (what CI runs):
 

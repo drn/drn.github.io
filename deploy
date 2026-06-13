@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Deploys the current build directory to upstream/master.
+# Deploys the current build directory to upstream/production.
 
 if [[ -n $(git status -s) ]]; then
   echo 'Aborting, untracked changes exist.'

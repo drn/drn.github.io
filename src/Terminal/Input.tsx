@@ -1,20 +1,13 @@
-import React, { useState, useEffect, KeyboardEvent } from 'react'
+import React, { useState, useEffect, useMemo, KeyboardEvent } from 'react'
 import _ from 'lodash'
 import './Input.css'
 import Row from './Row'
 import Executor from './Executor'
 
-type Props = {
-  code: string
-  state: string
-}
-
-const Input = (props: Props) => {
+const Input = () => {
   const [contents, setContents] = useState<any[]>([])
   const [inputRef, setInputRef] = useState<HTMLInputElement | null>(null)
-  const executor = new Executor(setContents)
-  const initialInputValue =
-    !!props.code && props.state === 'spotify' ? `spotify ${props.code}` : ''
+  const executor = useMemo(() => new Executor(setContents), [])
 
   useEffect(() => {
     focus()
@@ -22,7 +15,7 @@ const Input = (props: Props) => {
     return () => {
       document.body.removeEventListener('click', focus)
     }
-  })
+  }, [inputRef])
 
   useEffect(() => {
     window.scrollTo(0, document.body.scrollHeight)
@@ -46,9 +39,7 @@ const Input = (props: Props) => {
         autoCorrect="off"
         autoCapitalize="off"
         spellCheck={false}
-        onKeyPress={onKeyPress}
         onKeyDown={onKeyDown}
-        defaultValue={initialInputValue}
         ref={(ref) => setInputRef(ref)}
       />
     )
@@ -61,24 +52,22 @@ const Input = (props: Props) => {
   const run = (command: any) => {
     const response = executor.run(command)
     if (response && !response.halt) {
-      setContents([
-        ...contents,
+      setContents((prev) => [
+        ...prev,
         { type: 'command', body: command, success: response.success },
         { type: 'result', body: response.result },
       ])
     }
   }
 
-  const onKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
-      if (inputRef) run(inputRef.value)
-      if (inputRef) inputRef.value = ''
-    }
-  }
-
-  const onKeyDown = (e: KeyboardEvent) => {
+  const onKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Tab') {
       e.preventDefault()
+    }
+    // ignore Enter while an IME composition session is still in progress
+    if (e.key === 'Enter' && !e.nativeEvent.isComposing) {
+      if (inputRef) run(inputRef.value)
+      if (inputRef) inputRef.value = ''
     }
   }
 

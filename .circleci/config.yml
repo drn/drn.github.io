@@ -9,7 +9,7 @@ commands:
       - checkout
       - node/install:
           install-yarn: true
-          node-version: '16.14.2'
+          node-version: '22.15.0'
       - run: yarn install
 
 node_config: &node_config
@@ -43,6 +43,9 @@ jobs:
       - run:
           name: 'Compile Typescript'
           command: yarn tsc
+      - run:
+          name: 'Run Tests'
+          command: yarn test
 
   deploy:
     <<: *node_config

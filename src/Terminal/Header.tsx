@@ -20,7 +20,7 @@ const Header = () => {
       setTime(formatTime())
     }
     updateHeader()
-    const timer = setInterval(updateHeader, 500)
+    const timer = setInterval(updateHeader, 1000)
     return () => clearInterval(timer)
   }, [])
 
