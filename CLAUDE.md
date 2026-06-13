@@ -21,10 +21,7 @@ Node: `.tool-versions` pins 22.15.0 locally; CI (`.circleci/config.yml`) pins 16
 
 ## Architecture
 
-The app is a single-page React Router app (`src/App.tsx`) with two routes:
-
-- `/` → `Terminal` — the interactive shell UI
-- `/slack/callback` → `Slack` — renders an OAuth auth code for the user to copy
+The app is a single-page React Router app (`src/App.tsx`); the main route `/` renders the `Terminal` — the interactive shell UI.
 
 ### Terminal command system
 
@@ -37,13 +34,9 @@ Commands implement two interfaces (`Runnable`, `Nameable`):
 - `name: string` — the command word typed in the terminal
 - `run(args: string[])` → `{ success, result?, builtins? }` where `result` can be a React node
 
-**To add a command:** create a class in `src/Terminal/Executor/` implementing `Runnable, Nameable`, then add it to the `commands` array in `src/Terminal/Executor/index.tsx`. Existing examples: `Cat`, `Clear`, `Help`, `List` (`ls`), `Whoami`, `Spotify`.
+**To add a command:** create a class in `src/Terminal/Executor/` implementing `Runnable, Nameable`, then add it to the `commands` array in `src/Terminal/Executor/index.tsx`. Existing examples: `Cat`, `Clear`, `Help`, `List` (`ls`), `Whoami`.
 
 **Built-in side effects:** a command can return `builtins: ['clear']` to trigger a side effect handled by `Executor.builtin()` (which can call `setContents` to manipulate terminal state). When a command returns builtins, the run `halt`s and no command/result rows are appended.
-
-### OAuth-via-clipboard flow
-
-`Spotify` and `Slack` implement a clipboard-based auth handoff: the callback route copies the auth `code` to the clipboard for the user to paste back into the terminal. The Terminal route reads `code`/`state` params and pre-fills the input (e.g. `spotify <code>`) when `state === 'spotify'`.
 
 ## Deploy
 
