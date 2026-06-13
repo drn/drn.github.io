@@ -4,21 +4,24 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-A personal homepage rendered as an interactive terminal emulator. Built with Create React App (react-scripts 5), React 17, and TypeScript in strict mode. Served at `console.drn.dev` (see `CNAME`) / `drn.github.io`.
+A personal homepage rendered as an interactive terminal emulator. Built with Vite (`@vitejs/plugin-react`), React 18, and TypeScript in strict mode. Served at `console.drn.dev` (see `CNAME`) / `drn.github.io`.
 
 ## Commands
 
 ```bash
-yarn start          # dev server (react-scripts start)
-yarn build          # production build into build/
-yarn test           # react-scripts test (Jest) — finds no tests; see note
+yarn start          # dev server (vite)
+yarn build          # production build (vite build) into build/
+yarn preview        # serve the production build locally (vite preview)
+yarn test           # run Vitest suite (vitest run)
 yarn deploy         # build + publish (see Deploy below)
 yarn tsc            # typecheck via node_modules/.bin/tsc (noEmit) — NOT a package.json script
 ```
 
-There is **no jest test suite** (no `*.spec`/`*.test` files exist), so `yarn test` has nothing to run. CI's "test" job runs `yarn tsc` instead — that typecheck, not `yarn test`, is the real verification gate. `yarn tsc` is not a defined script; Yarn resolves it to the `tsc` binary in `node_modules/.bin`. ESLint is configured (`.eslintrc.cjs`) but there is no `lint` script. Formatting is enforced by Prettier via the Husky `.husky/pre-commit` hook (`pretty-quick --staged`) — note the `husky`/`lint-staged` block in `package.json` is stale dead config that Husky v8 ignores.
+`yarn test` runs the Vitest suite (`vitest run`). Tests live alongside source files as `*.test.tsx` (e.g. `src/Terminal/Executor/index.test.tsx`). CI's "test" job runs `yarn tsc` then `yarn test`. `yarn tsc` is not a defined script; Yarn resolves it to the `tsc` binary in `node_modules/.bin`. ESLint is configured (`.eslintrc.cjs`) but there is no `lint` script. Formatting is enforced by Prettier via the Husky `.husky/pre-commit` hook (`pretty-quick --staged`).
 
-Node: `.tool-versions` pins 22.15.0 locally; CI (`.circleci/config.yml`) pins 16.14.2.
+Vite config lives in `vite.config.ts` (`react()` plugin, `build.outDir = 'build'`, `sourcemap: false`, Vitest `setupFiles`). Note: `react-anime` declares React 17 peer deps but is verified to render under React 18 by `src/Terminal/Row.test.tsx` — re-check that suite before bumping it. The HTML entry is `/index.html` at the repo root, which loads `/src/index.tsx`; `public/` is Vite's static asset dir (icons, manifest) served at `/`. The `.env` (`GENERATE_SOURCEMAP=false`) is a leftover CRA file — sourcemaps are now controlled by `vite.config.ts`.
+
+Node: `.tool-versions` and CI (`.circleci/config.yml`) both pin 22.15.0.
 
 ## Architecture
 

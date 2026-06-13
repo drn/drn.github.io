@@ -1,18 +1,25 @@
+import { type ReactNode } from 'react'
 import _ from 'lodash'
 import { Runnable } from './Runnable'
+import { Nameable } from './Nameable'
 import Cat from './Cat'
 import Clear from './Clear'
 import Help from './Help'
 import List from './List'
 import Whoami from './Whoami'
-import Spotify from './Spotify'
 
-const commands = [Cat, Clear, Help, List, Whoami, Spotify]
+const commands: Array<new () => Runnable & Nameable> = [
+  Cat,
+  Clear,
+  Help,
+  List,
+  Whoami,
+]
 
 class Executor {
   setContents: (value: Array<any>) => void
   registered: {
-    [s: string]: Runnable
+    [s: string]: Runnable & Nameable
   }
 
   constructor(setContents: (arg0: Array<any>) => void) {
@@ -23,7 +30,7 @@ class Executor {
   }
 
   // class implementing the Runnable and Nameable interfaces
-  register(command: any) {
+  register(command: new () => Runnable & Nameable) {
     const initialized = new command()
     this.registered[initialized.name] = initialized
   }
@@ -31,7 +38,7 @@ class Executor {
   run(input: string): {
     halt?: boolean
     success: boolean
-    result: string | null
+    result: ReactNode | null
   } {
     const parsed = this.parse(input)
 
