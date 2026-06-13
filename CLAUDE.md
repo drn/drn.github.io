@@ -11,11 +11,12 @@ A personal homepage rendered as an interactive terminal emulator. Built with Cre
 ```bash
 yarn start          # dev server (react-scripts start)
 yarn build          # production build into build/
-yarn tsc            # typecheck (noEmit) — this is what CI runs as "test"
+yarn test           # react-scripts test (Jest) — finds no tests; see note
 yarn deploy         # build + publish (see Deploy below)
+yarn tsc            # typecheck via node_modules/.bin/tsc (noEmit) — NOT a package.json script
 ```
 
-There is **no jest test suite** (no `*.spec`/`*.test` files exist). `yarn test` exists but the CI "test" job runs `yarn tsc` for typechecking instead. ESLint is configured (`.eslintrc.cjs`) but there is no `lint` script; formatting is enforced by Prettier via a Husky pre-commit hook (`pretty-quick --staged`).
+There is **no jest test suite** (no `*.spec`/`*.test` files exist), so `yarn test` has nothing to run. CI's "test" job runs `yarn tsc` instead — that typecheck, not `yarn test`, is the real verification gate. `yarn tsc` is not a defined script; Yarn resolves it to the `tsc` binary in `node_modules/.bin`. ESLint is configured (`.eslintrc.cjs`) but there is no `lint` script. Formatting is enforced by Prettier via the Husky `.husky/pre-commit` hook (`pretty-quick --staged`) — note the `husky`/`lint-staged` block in `package.json` is stale dead config that Husky v8 ignores.
 
 Node: `.tool-versions` pins 22.15.0 locally; CI (`.circleci/config.yml`) pins 16.14.2.
 
