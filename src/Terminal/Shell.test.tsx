@@ -137,6 +137,22 @@ describe('Shell', () => {
     clearIntervalSpy.mockRestore()
   })
 
+  it('aborts the current line on Ctrl-C without running it', async () => {
+    renderShell()
+    await flush()
+
+    feed('abc')
+    termHolder.last!.onDataHandler!('\x03')
+    await flush()
+    // Enter now acts on a fresh, empty line — the aborted 'abc' must not run.
+    termHolder.last!.onDataHandler!('\r')
+    await flush()
+
+    const joined = stripAnsi(termHolder.last!.writes.join(''))
+    expect(joined).toContain('^C')
+    expect(joined).not.toContain('command not found: abc')
+  })
+
   it('resets the line buffer on Ctrl-L so no stale input survives', async () => {
     renderShell()
     await flush()
