@@ -180,8 +180,11 @@ const Shell = () => {
             term!.write(lineBuffer.historyNext())
             return
           case '\x03':
-            // Abort the line like a real shell: echo ^C, drop to a fresh
-            // prompt, and reset the buffer (leaving the typed text visible).
+            // Abort the line like a real shell: move to the end of the typed
+            // text so ^C always appends there (even when editing mid-line),
+            // then drop to a fresh prompt and reset the buffer. The typed text
+            // stays visible above, as in a real shell.
+            term!.write(lineBuffer.end())
             lineBuffer.clearLine()
             term!.write('^C\r\n' + PROMPT_STRING)
             return
