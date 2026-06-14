@@ -12,9 +12,6 @@
     "forceConsistentCasingInFileNames": true,
     "module": "esnext",
     "moduleResolution": "bundler",
-    "paths": {
-      "react-anime": ["./node_modules/react-anime/dist/react-anime.d.ts"]
-    },
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,

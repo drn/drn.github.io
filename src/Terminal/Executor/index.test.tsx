@@ -1,6 +1,9 @@
 import { describe, it, expect, vi } from 'vitest'
 import Executor from './index'
 
+// eslint-disable-next-line no-control-regex
+const stripAnsi = (s: string): string => s.replace(/\x1b\[[0-9;]*m/g, '')
+
 describe('Executor', () => {
   describe('run', () => {
     it('returns success false for unknown commands', () => {
@@ -10,13 +13,13 @@ describe('Executor', () => {
       expect(result.result).toBe('zsh: command not found: bogus')
     })
 
-    it('run clear returns halt true and calls setContents([])', () => {
-      const setContents = vi.fn()
-      const executor = new Executor(setContents)
+    it('run clear returns halt true and calls the clear callback', () => {
+      const clearMock = vi.fn()
+      const executor = new Executor(clearMock)
       const result = executor.run('clear')
       expect(result.halt).toBe(true)
       expect(result.success).toBe(true)
-      expect(setContents).toHaveBeenCalledWith([])
+      expect(clearMock).toHaveBeenCalled()
     })
 
     it('run whoami returns success true with a defined result', () => {
@@ -42,7 +45,9 @@ describe('Executor', () => {
     it('run cat nope returns the not-found error string', () => {
       const executor = new Executor(vi.fn())
       const result = executor.run('cat nope')
-      expect(result.result).toBe('cat: nope: No such file or directory')
+      expect(stripAnsi(result.result ?? '')).toBe(
+        'cat: nope: No such file or directory',
+      )
     })
   })
 

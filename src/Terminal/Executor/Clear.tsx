@@ -1,4 +1,3 @@
-import { type ReactNode } from 'react'
 import { Runnable } from './Runnable'
 import { Nameable } from './Nameable'
 
@@ -8,7 +7,7 @@ class Clear implements Runnable, Nameable {
   run(_: Array<string>): {
     success: boolean
     builtins?: Array<string>
-    result?: ReactNode
+    result?: string
   } {
     return {
       success: true,

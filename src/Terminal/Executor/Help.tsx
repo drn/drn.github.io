@@ -1,4 +1,3 @@
-import React, { type ReactNode } from 'react'
 import { Runnable } from './Runnable'
 import { Nameable } from './Nameable'
 
@@ -9,22 +8,18 @@ class Help implements Runnable, Nameable {
   run(_: Array<string>): {
     success: boolean
     builtins?: Array<string>
-    result?: ReactNode
+    result?: string
   } {
     return {
       success: true,
-      result: (
-        <div>
-          Available Commands:
-          <ul>
-            <li>cat</li>
-            <li>clear</li>
-            <li>ls</li>
-            <li>help</li>
-            <li>whoami</li>
-          </ul>
-        </div>
-      ),
+      result: [
+        'Available Commands:',
+        '  cat',
+        '  clear',
+        '  ls',
+        '  help',
+        '  whoami',
+      ].join('\r\n'),
     }
   }
 }
