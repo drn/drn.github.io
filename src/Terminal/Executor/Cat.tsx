@@ -10,17 +10,15 @@ class Cat implements Runnable, Nameable {
     result?: string
   } {
     const filename = args[0] || ''
-    let result = `cat: ${filename}: No such file or directory`
-    switch (filename) {
-      case 'README':
-        result = 'Welcome! More to come soon...'
-        break
-      default:
-        break
+    if (filename === 'README') {
+      return {
+        success: true,
+        result: 'Welcome! More to come soon...',
+      }
     }
     return {
-      success: true,
-      result: result,
+      success: false,
+      result: `cat: ${filename}: No such file or directory`,
     }
   }
 }

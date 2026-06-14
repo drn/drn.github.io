@@ -16,7 +16,7 @@ const commands: Array<new () => Runnable & Nameable> = [
 ]
 
 class Executor {
-  clear: () => void
+  private clear: () => void
   registered: {
     [s: string]: Runnable & Nameable
   }
@@ -59,7 +59,7 @@ class Executor {
       }
 
       return {
-        success: true,
+        success: results.success,
         result: results.result ?? null,
       }
     }
