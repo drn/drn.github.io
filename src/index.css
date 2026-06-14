@@ -37,3 +37,14 @@ a:active {
   color: #50f0ef;
   text-decoration: none;
 }
+
+.terminal,
+.shell {
+  height: 100vh;
+  width: 100%;
+}
+
+.shell .xterm {
+  height: 100%;
+  width: 100%;
+}

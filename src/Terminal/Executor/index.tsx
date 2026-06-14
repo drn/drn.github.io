@@ -1,4 +1,3 @@
-import { type ReactNode } from 'react'
 import _ from 'lodash'
 import { Runnable } from './Runnable'
 import { Nameable } from './Nameable'
@@ -17,13 +16,13 @@ const commands: Array<new () => Runnable & Nameable> = [
 ]
 
 class Executor {
-  setContents: (value: Array<any>) => void
+  clear: () => void
   registered: {
     [s: string]: Runnable & Nameable
   }
 
-  constructor(setContents: (arg0: Array<any>) => void) {
-    this.setContents = setContents
+  constructor(clear: () => void) {
+    this.clear = clear
     this.registered = {}
     this.register = this.register.bind(this)
     _.each(commands, this.register)
@@ -38,7 +37,7 @@ class Executor {
   run(input: string): {
     halt?: boolean
     success: boolean
-    result: ReactNode | null
+    result: string | null
   } {
     const parsed = this.parse(input)
 
@@ -55,13 +54,13 @@ class Executor {
         return {
           halt: true,
           success: true,
-          result: results.result,
+          result: results.result ?? null,
         }
       }
 
       return {
         success: true,
-        result: results.result,
+        result: results.result ?? null,
       }
     }
 
@@ -93,10 +92,6 @@ class Executor {
       default:
         break
     }
-  }
-
-  clear() {
-    this.setContents([])
   }
 }
 

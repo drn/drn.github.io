@@ -4,7 +4,7 @@
 
 A personal homepage rendered as an interactive terminal emulator, live at
 [console.drn.dev](https://console.drn.dev/). Built with Vite, React 18, and
-TypeScript.
+TypeScript, with the terminal itself powered by [xterm.js](https://xtermjs.org/).
 
 ---
 
@@ -34,7 +34,9 @@ Deploy:
 
 Create a class in `src/Terminal/Executor/` implementing the `Runnable` and
 `Nameable` interfaces, then register it in the `commands` array in
-`src/Terminal/Executor/index.tsx`.
+`src/Terminal/Executor/index.tsx`. A command's `run()` returns an ANSI string
+as its `result` (use the helpers in `src/Terminal/ansi.ts` for color, Nerd Font
+glyphs, and clickable links; separate lines with `\r\n`).
 
 ### License
 

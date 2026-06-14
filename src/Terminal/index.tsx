@@ -1,12 +1,10 @@
 import React from 'react'
-import Header from './Header'
-import Input from './Input'
+import Shell from './Shell'
 
 const Terminal = () => {
   return (
     <div className="terminal">
-      <Header />
-      <Input />
+      <Shell />
     </div>
   )
 }
