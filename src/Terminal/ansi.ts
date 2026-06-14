@@ -36,3 +36,9 @@ export const LINKEDIN = ''
 // Wraps text in a color escape sequence and resets afterward.
 export const paint = (text: string, colorCode: string): string =>
   `${colorCode}${text}${RESET}`
+
+// Strips ANSI SGR (color) escape sequences. Used to measure the visible width
+// of a styled string and to assert on rendered output in tests.
+export const stripAnsi = (text: string): string =>
+  // eslint-disable-next-line no-control-regex
+  text.replace(/\x1b\[[0-9;]*m/g, '')

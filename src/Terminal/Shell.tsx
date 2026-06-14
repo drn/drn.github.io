@@ -179,6 +179,17 @@ const Shell = () => {
           case '\x1b[B':
             term!.write(lineBuffer.historyNext())
             return
+          case '\x1b[3~':
+            term!.write(lineBuffer.del())
+            return
+          case '\x1b[H':
+          case '\x1bOH':
+            term!.write(lineBuffer.home())
+            return
+          case '\x1b[F':
+          case '\x1bOF':
+            term!.write(lineBuffer.end())
+            return
           case '\x03':
             // Abort the line like a real shell: move to the end of the typed
             // text so ^C always appends there (even when editing mid-line),

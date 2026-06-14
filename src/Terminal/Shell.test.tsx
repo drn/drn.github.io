@@ -2,9 +2,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import React, { act } from 'react'
 import { createRoot } from 'react-dom/client'
-
-// eslint-disable-next-line no-control-regex
-const stripAnsi = (s: string): string => s.replace(/\x1b\[[0-9;]*m/g, '')
+import { stripAnsi } from './ansi'
 
 // Captures the most recently constructed fake Terminal so tests can drive its
 // onData handler and inspect its recorded writes. Defined via vi.hoisted so the

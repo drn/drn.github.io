@@ -3,7 +3,7 @@
 // powerline-styled status bar rendered with truecolor SGR sequences.
 
 import moment from 'moment'
-import { RESET, bg, fg } from './ansi'
+import { RESET, bg, fg, stripAnsi } from './ansi'
 
 // Palette ported verbatim from Header.css.
 const PURPLE = '#74729f' // color1 background
@@ -15,7 +15,6 @@ const TEXT = '#bcbbbb' // color2 foreground
 // Powerline separator glyphs (see Header.tsx comments).
 const SOLID_RIGHT = '⮀' // &#x2B80; solid right-pointing
 const EMPTY_RIGHT = '⮁' // &#x2B81; empty right-pointing
-const ARROW = '⮀' // '⮀' rendered via the solid-right glyph
 
 // Responsive breakpoints converted from pixels to columns.
 // Header.tsx used <800px and <1200px; at a 15px Menlo cell these map to
@@ -46,18 +45,16 @@ const formatDate = (): string =>
   String.fromCharCode(11139) +
   moment().format('MMM YYYY')
 
-// Strips ANSI SGR escape sequences so visible width can be measured.
-const stripAnsi = (text: string): string =>
-  // eslint-disable-next-line no-control-regex
-  text.replace(/\x1b\[[0-9;]*m/g, '')
-
 const visibleWidth = (text: string): number => stripAnsi(text).length
 
 // Builds the left segment group for the given column width.
 const buildLeft = (cols: number): string => {
   if (cols < NARROW_COLS) {
     return (
-      color1(' master ' + EMPTY_RIGHT + ' * ') + bg(DARK) + fg(PURPLE) + ARROW
+      color1(' master ' + EMPTY_RIGHT + ' * ') +
+      bg(DARK) +
+      fg(PURPLE) +
+      SOLID_RIGHT
     )
   }
   if (cols < WIDE_COLS) {

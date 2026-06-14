@@ -1,8 +1,6 @@
 import { describe, it, expect, vi } from 'vitest'
 import Executor from './index'
-
-// eslint-disable-next-line no-control-regex
-const stripAnsi = (s: string): string => s.replace(/\x1b\[[0-9;]*m/g, '')
+import { stripAnsi } from '../ansi'
 
 describe('Executor', () => {
   describe('run', () => {
@@ -42,9 +40,10 @@ describe('Executor', () => {
       expect(result.result).toBe('zsh: command not found: ')
     })
 
-    it('run cat nope returns the not-found error string', () => {
+    it('run cat nope returns failure with the not-found error string', () => {
       const executor = new Executor(vi.fn())
       const result = executor.run('cat nope')
+      expect(result.success).toBe(false)
       expect(stripAnsi(result.result ?? '')).toBe(
         'cat: nope: No such file or directory',
       )
